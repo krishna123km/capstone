@@ -1,0 +1,36 @@
+# Jekyll configuration for GitHub Pages
+# Site metadata
+title: Paint Store
+description: A complete paint shopping website built with HTML, CSS, and Vanilla JavaScript
+url: https://krishnamohanpenumart.github.io/mavenTesting
+baseurl: /mavenTesting
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Theme
+theme: minima
+
+# Exclude files from site generation
+exclude:
+  - .git
+  - .gitignore
+  - .github
+  - .vscode
+  - node_modules
+  - demo
+  - reports
+  - README.md
+  - LICENSE
+  - CNAME
+
+# Collections
+collections_dir: assets
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"

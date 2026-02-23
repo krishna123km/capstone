@@ -1,2 +1,22 @@
 demo/node_modules
 demo/allure-results
+
+# GitHub Pages
+.nojekyll
+
+# Dependencies
+node_modules/
+.vscode/
+.env
+.env.local
+
+# Build artifacts
+dist/
+build/
+target/
+
+# IDE
+.DS_Store
+*.swp
+*.swo
+*~
