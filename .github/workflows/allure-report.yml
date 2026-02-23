@@ -50,14 +50,14 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
-          cache-dependency-path: frontend/package-lock.json
+          cache-dependency-path: demo/package-lock.json
 
       - name: Build backend
-        working-directory: backend
+        working-directory: demo
         run: mvn -q -DskipTests package
 
       - name: Start backend
-        working-directory: backend
+        working-directory: demo
         run: |
           mvn -q -DskipTests spring-boot:run -Dspring-boot.run.profiles=ci &
           echo "Waiting for backend..."
@@ -67,11 +67,11 @@ jobs:
           done
 
       - name: Install frontend deps
-        working-directory: frontend
+        working-directory: demo
         run: npm ci
 
       - name: Start frontend
-        working-directory: frontend
+        working-directory: demo
         run: |
           npm run dev &
           echo "Waiting for frontend..."
@@ -82,20 +82,20 @@ jobs:
           sleep 3
 
       - name: Run tests (full suite, data-dependent skipped in CI)
-        working-directory: testing
+        working-directory: demo
         env:
           CI: true
         run: |
           mvn clean test -DsuiteXmlFile=testng.xml -Dallure.results.directory=target/allure-results
 
       - name: Generate Allure report
-        working-directory: testing
+        working-directory: demo
         run: mvn allure:report -N
 
       - name: Upload Allure report for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: testing/target/site/allure-maven-plugin
+          path: demo/target/site/allure-maven-plugin
 
   deploy:
     environment:
