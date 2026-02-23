@@ -1,71 +1,253 @@
-# Paint Store
+🎨 Paint Store – Capstone Project
 
-A complete paint shopping website built with **HTML, CSS, and Vanilla JavaScript**. No backend or frameworks. Uses **Local Storage** for user accounts, cart, and order history.
+End-to-End Quality Engineering Implementation
 
-## Features
+A complete paint e-commerce web application built using HTML, CSS, and Vanilla JavaScript, with no backend or frameworks.
+The project also includes a full Selenium automation test suite implemented using Java, TestNG, Maven, and Page Object Model (POM).
 
-- **Login / Signup** – Email & password, stored in Local Storage. Redirects to Home when authenticated.
-- **Home** – Grid of paint products with image, title, price, rating, and “View Details”. Search bar filters by name. Sticky nav: Home, Cart, Orders, Logout.
-- **Product page** – Large image, title, price, description, genre, rating. Add to Cart (quantity increases if already in cart).
-- **Cart** – List with name, price, quantity (increase/decrease), remove, line total. Grand total and **Checkout** button.
-- **Checkout / Payment** – Order summary, then payment form: Name on card, Card number, Expiry (MM/YY), CVV, Billing address. On submit: order saved to history, cart cleared, success message with Order ID, date, total.
-- **Orders** – All past orders with Order ID, items, total, date. All data in Local Storage.
+All application data (users, cart, orders) is stored in Browser Local Storage, making this project ideal for frontend QA, automation testing, and CI/CD demonstration.
 
-## Running locally
+🚀 Application Features
+🔐 User Registration & Authentication
 
-To avoid CORS and get accurate Lighthouse scores, serve the folder over HTTP:
+Signup and Login using Email & Password
 
-**Option 1 – Node (npx)**  
-```bash
-npx serve paint-store
-```
-Then open the URL shown (e.g. http://localhost:3000).
+Credentials stored in Local Storage
 
-**Option 2 – Python 3**  
-```bash
-cd paint-store
+Authenticated users redirected to Home page
+
+Logout clears session data
+
+🏠 Home Page
+
+Paint product grid with image, title, price, and rating
+
+Product search by name
+
+Sticky navigation bar:
+
+Home
+
+Cart
+
+Orders
+
+Logout
+
+🧾 Product Details
+
+Large product image
+
+Product title, description, price, rating
+
+Add to Cart functionality
+
+Quantity increases if product already exists in cart
+
+🛒 Cart Management
+
+Cart item list with:
+
+Increase / Decrease quantity
+
+Remove item
+
+Line total calculation
+
+Grand total displayed
+
+Proceed to Checkout button
+
+💳 Checkout & Payment
+
+Order summary
+
+Payment form with:
+
+Name on Card
+
+Card Number
+
+Expiry (MM/YY)
+
+CVV
+
+Billing Address
+
+On successful payment:
+
+Order saved to Order History
+
+Cart cleared
+
+Success message with Order ID, Date, and Total
+
+📦 Order History
+
+Displays all past orders
+
+Order ID, items purchased, total amount, date
+
+Data stored in Local Storage
+
+🧪 Automation Testing Overview
+🔧 Testing Tools & Technologies
+
+Java
+
+Selenium WebDriver
+
+TestNG
+
+Maven
+
+Page Object Model (POM)
+
+📂 Automation Framework Structure
+src/test/java/
+├── base/
+│   └── BaseTest.java
+├── pages/
+│   ├── HomePage.java
+│   ├── ProductPage.java
+│   ├── CartPage.java
+│   ├── CheckoutPage.java
+│   └── OrdersPage.java
+├── tests/
+│   ├── LoginRegistrationTests.java
+│   ├── ProductSearchListingTests.java
+│   ├── CartManagementTests.java
+│   ├── OrderPlacementTests.java
+│   ├── PaymentProcessingTests.java
+│   └── OrderHistoryTrackingTests.java
+✅ Automated Test Modules (60+ Test Cases)
+🔐 Login & Registration Tests
+
+Valid signup and login
+
+Invalid credential handling
+
+Session persistence
+
+Logout functionality
+
+Page redirections
+
+🔍 Product Search & Listing Tests
+
+Product grid rendering
+
+Search functionality
+
+Product details navigation
+
+Add to Cart from product page
+
+UI validations
+
+🛒 Cart Management Tests
+
+Empty cart behavior
+
+Add single and multiple products
+
+Quantity increase/decrease
+
+Remove items
+
+Cart persistence
+
+Total price calculation
+
+📦 Order Placement Tests
+
+Checkout page access
+
+Order summary validation
+
+Empty cart checkout restriction
+
+Successful order placement
+
+Order ID generation
+
+Cart clearance after order
+
+💳 Payment Processing Tests
+
+Valid payment submission
+
+Invalid card number handling
+
+Invalid expiry and CVV validation
+
+Required field checks
+
+Transaction success confirmation
+
+📜 Order History & Tracking Tests
+
+Orders page navigation
+
+Empty order history message
+
+Order listing after purchase
+
+Order ID, date, total validation
+
+Multiple order handling
+
+⚙️ Running the Application Locally
+Option 1 – Node
+npx serve .
+Option 2 – Python
 python -m http.server 8080
-```
-Open http://localhost:8080.
+Option 3 – VS Code
 
-**Option 3 – VS Code**  
-Use the “Live Server” extension and open `index.html`.
+Use Live Server and open index.html
 
-## Lighthouse performance
+🧪 Running Automation Tests
+mvn clean test
 
-- All scripts use `defer` to avoid render-blocking.
-- Images use `width`/`height` and `loading="lazy"` where appropriate.
-- Single CSS file, no @import.
-- Favicon is inline SVG (no extra request).
-- Run Lighthouse against the **served** URL (e.g. http://localhost:3000), not `file://`, for best and consistent results.
+Tests run using TestNG
 
-## File structure
+Browser: Chrome (via WebDriver)
 
-```
+Reports generated in target/surefire-reports
+
+📁 Project Structure (Frontend)
 paint-store/
-├── index.html      # Login / Signup
-├── home.html       # Product grid + search
-├── product.html    # Product detail + Add to Cart
-├── cart.html       # Cart + Checkout button
-├── checkout.html   # Payment form + place order
-├── orders.html     # Order history
+├── index.html
+├── home.html
+├── product.html
+├── cart.html
+├── checkout.html
+├── orders.html
 ├── css/
-│   └── style.css   # Global styles (dark theme, responsive)
+│   └── style.css
 ├── js/
-│   ├── storage.js  # Local Storage helpers
-│   ├── data.js     # Paint products list
-│   ├── auth.js     # Login/Signup logic
-│   ├── nav.js      # Nav bar + cart count + logout
-│   ├── home.js     # Grid + search
-│   ├── product.js  # Product page + Add to Cart
-│   ├── cart.js     # Cart list + quantity + remove
-│   ├── checkout.js # Payment form + place order
-│   └── orders.js   # Orders list
+│   ├── storage.js
+│   ├── data.js
+│   ├── auth.js
+│   ├── nav.js
+│   ├── home.js
+│   ├── product.js
+│   ├── cart.js
+│   ├── checkout.js
+│   └── orders.js
 └── README.md
-```
+🌐 Deployment
 
-## Defaults
+Hosted using GitHub Pages
 
-- No pre-existing users; sign up from the login page.
-- Passwords are stored in plain text in Local Storage (suitable for demo only).
-"# capstone" 
+Fully static frontend
+
+No backend dependencies
+
+⚠️ Notes
+
+Passwords are stored in plain text (demo purpose only)
+
+No real payment gateway integration
+
+Designed for testing, QA, and automation practice
