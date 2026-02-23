@@ -18,7 +18,7 @@
     <maven.compiler.source>15</maven.compiler.source>
     <maven.compiler.target>15</maven.compiler.target>
     <suiteXmlFile>testng.xml</suiteXmlFile>
-    <allure.results.directory>target/allure-results</allure.results.directory>
+    <allure.results.directory>allure-results</allure.results.directory>
   </properties>
 
   <dependencies>
@@ -160,7 +160,7 @@
         <artifactId>allure-maven</artifactId>
         <version>2.12.0</version>
         <configuration>
-          <resultsDirectory>${allure.results.directory}</resultsDirectory>
+          <resultsDirectory>${project.build.directory}/${allure.results.directory}</resultsDirectory>
         </configuration>
       </plugin>
     </plugins>
@@ -171,42 +171,42 @@
       <id>module1</id>
       <properties>
         <suiteXmlFile>testng-module1.xml</suiteXmlFile>
-        <allure.results.directory>target/allure-results-module1</allure.results.directory>
+        <allure.results.directory>allure-results-module1</allure.results.directory>
       </properties>
     </profile>
     <profile>
       <id>module2</id>
       <properties>
         <suiteXmlFile>testng-module2.xml</suiteXmlFile>
-        <allure.results.directory>target/allure-results-module2</allure.results.directory>
+        <allure.results.directory>allure-results-module2</allure.results.directory>
       </properties>
     </profile>
     <profile>
       <id>module3</id>
       <properties>
         <suiteXmlFile>testng-module3.xml</suiteXmlFile>
-        <allure.results.directory>target/allure-results-module3</allure.results.directory>
+        <allure.results.directory>allure-results-module3</allure.results.directory>
       </properties>
     </profile>
     <profile>
       <id>module4</id>
       <properties>
         <suiteXmlFile>testng-module4.xml</suiteXmlFile>
-        <allure.results.directory>target/allure-results-module4</allure.results.directory>
+        <allure.results.directory>allure-results-module4</allure.results.directory>
       </properties>
     </profile>
     <profile>
       <id>module5</id>
       <properties>
         <suiteXmlFile>testng-module5.xml</suiteXmlFile>
-        <allure.results.directory>target/allure-results-module5</allure.results.directory>
+        <allure.results.directory>allure-results-module5</allure.results.directory>
       </properties>
     </profile>
     <profile>
       <id>module6</id>
       <properties>
         <suiteXmlFile>testng-module6.xml</suiteXmlFile>
-        <allure.results.directory>target/allure-results-module6</allure.results.directory>
+        <allure.results.directory>allure-results-module6</allure.results.directory>
       </properties>
     </profile>
   </profiles>
