@@ -55,12 +55,23 @@ jobs:
         working-directory: demo
         run: mvn allure:report -N
 
+      - name: Prepare GitHub Pages content
+        run: |
+          mkdir -p gh-pages
+          if [ -d "demo/target/site/allure-maven-plugin" ]; then
+            cp -r demo/target/site/allure-maven-plugin/* gh-pages/ || true
+          fi
+          if [ ! -f "gh-pages/index.html" ]; then
+            echo "Warning: index.html not found in gh-pages"
+            ls -la demo/target/site/ 2>/dev/null || echo "site directory not found"
+          fi
+
       - name: Upload Allure report as artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: demo/target/site/allure-maven-plugin/
+          path: gh-pages/
           retention-days: 30
 
       - name: Upload test results
@@ -74,7 +85,7 @@ jobs:
       - name: Upload Allure report for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: demo/target/site/allure-maven-plugin
+          path: gh-pages
 
       - name: Publish test results summary
         if: always()
