@@ -93,26 +93,26 @@ jobs:
       - name: Prepare GitHub Pages content
         if: always()
         run: |
-          mkdir -p docs
+          mkdir -p allure-pages
           echo "=== Preparing GitHub Pages content ==="
           
           if [ -d "demo/target/site/allure-maven-plugin" ]; then
-            echo "Copying Allure report to docs..."
-            cp -r demo/target/site/allure-maven-plugin/* docs/ 2>/dev/null || {
+            echo "Copying Allure report to allure-pages..."
+            cp -r demo/target/site/allure-maven-plugin/* allure-pages/ 2>/dev/null || {
               echo "Warning: Some files could not be copied"
             }
             echo "Copied files:"
-            ls -la docs/ | head -20
+            ls -la allure-pages/ | head -20
           else
             echo "✗ Allure report directory not found at demo/target/site/allure-maven-plugin"
             ls -la demo/target/site/ 2>/dev/null || echo "site directory not found"
           fi
           
-          if [ -f "docs/index.html" ]; then
-            echo "✓ index.html found in docs"
+          if [ -f "allure-pages/index.html" ]; then
+            echo "✓ index.html found in allure-pages"
           else
-            echo "✗ index.html NOT found in docs"
-            find docs -name "*.html" 2>/dev/null | head -10 || echo "No HTML files found"
+            echo "✗ index.html NOT found in allure-pages"
+            find allure-pages -name "*.html" 2>/dev/null | head -10 || echo "No HTML files found"
           fi
 
       - name: Upload Allure report as artifact
@@ -120,7 +120,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: docs/
+          path: allure-pages/
           retention-days: 30
 
       - name: Upload test results
@@ -131,19 +131,10 @@ jobs:
           path: demo/target/allure-results/
           retention-days: 30
 
-      - name: Commit Allure report to docs folder
-        if: always()
-        run: |
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
-          
-          if [ -d "docs" ] && [ -f "docs/index.html" ]; then
-            git add docs/
-            git commit -m "Update Allure report - $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
-            git push origin master || echo "Push failed - may already be up to date"
-          else
-            echo "docs/index.html not found, skipping commit"
-          fi
+      - name: Upload Allure report for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: allure-pages
 
       - name: Publish test results summary
         if: always()
@@ -154,4 +145,15 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Allure Report** available as [artifact download](../../actions/runs/${{ github.run_id }}) (allure-report)" >> $GITHUB_STEP_SUMMARY
           echo "- **Test Results** available as [artifact download](../../actions/runs/${{ github.run_id }}) (test-results)" >> $GITHUB_STEP_SUMMARY
-          echo "- **GitHub Pages** : https://krishna123km.github.io/capstone/" >> $GITHUB_STEP_SUMMARY
+          echo "- **GitHub Pages** deployment in progress..." >> $GITHUB_STEP_SUMMARY
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: test-and-report
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
