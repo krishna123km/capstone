@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   test-and-report:
@@ -148,6 +148,9 @@ jobs:
           echo "- **GitHub Pages** deployment in progress..." >> $GITHUB_STEP_SUMMARY
 
   deploy:
+    concurrency:
+      group: "pages"
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
