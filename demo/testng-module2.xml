@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Module 2 - Product Search" verbose="1">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    <test name="Module 2 - Product Search &amp; Listing">
+        <classes>
+            <class name="com.example.ProductSearchListingTests"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Paint Store</title>
+  <meta name="description" content="Paint Store - Browse paint products">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2358a6ff' width='32' height='32' rx='4'/><path fill='%23fff' d='M8 10h16v2H8zm0 5h12v2H8zm0 5h10v2H8z'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+</head>
+<body>
+  <nav class="nav" role="navigation">
+    <a href="home.html" class="nav-brand">Paint Store</a>
+    <div class="nav-links">
+      <a href="home.html" class="active">Home</a>
+      <a href="cart.html">Cart <span id="cart-count"></span></a>
+      <a href="orders.html">Orders</a>
+      <a href="index.html" id="nav-logout">Logout</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="search-wrap">
+      <label for="search" class="sr-only">Search paint</label>
+      <input type="search" id="search" placeholder="Search paint by name..." autocomplete="off">
+    </div>
+    <div id="paint-grid" class="paint-grid" role="list"></div>
+    <p id="no-results" class="text-center" style="display:none; color: var(--text-secondary);">No paint found.</p>
+  </div>
+  <script src="js/storage.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/home.js" defer></script>
+</body>
+</html>

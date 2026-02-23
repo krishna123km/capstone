@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | Paint Store</title>
+  <meta name="description" content="Your cart">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2358a6ff' width='32' height='32' rx='4'/><path fill='%23fff' d='M8 10h16v2H8zm0 5h12v2H8zm0 5h10v2H8z'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav" role="navigation">
+    <a href="home.html" class="nav-brand">Paint Store</a>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="cart.html" class="active">Cart <span id="cart-count"></span></a>
+      <a href="orders.html">Orders</a>
+      <a href="index.html" id="nav-logout">Logout</a>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Your Cart</h1>
+    <div id="cart-content"></div>
+    <div id="cart-total-section" class="cart-total-section" style="display:none;">
+      <p class="grand-total">Grand Total: <span id="grand-total">₹0</span></p>
+      <a href="checkout.html" class="btn btn-primary mt-1">Proceed to Checkout</a>
+    </div>
+  </div>
+  <script src="js/storage.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/cart.js" defer></script>
+</body>
+</html>

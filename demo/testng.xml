@@ -1,0 +1,43 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="E-Commerce Test Suite" verbose="1">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="Module 1 - Login &amp; Registration">
+        <classes>
+            <class name="com.example.LoginRegistrationTests">
+            </class>
+        </classes>
+    </test>
+
+    <test name="Module 2 - Product Search &amp; Listing">
+        <classes>
+            <class name="com.example.ProductSearchListingTests"/>
+        </classes>
+    </test>
+
+    <test name="Module 3 - Cart Management">
+        <classes>
+            <class name="com.example.CartManagementTests"/>
+        </classes>
+    </test>
+
+    <test name="Module 4 - Order Placement">
+        <classes>
+            <class name="com.example.OrderPlacementTests"/>
+        </classes>
+    </test>
+
+    <test name="Module 5 - Payment Processing">
+        <classes>
+            <class name="com.example.PaymentProcessingTests"/>
+        </classes>
+    </test>
+
+    <test name="Module 6 - Order History &amp; Tracking">
+        <classes>
+            <class name="com.example.OrderHistoryTrackingTests"/>
+        </classes>
+    </test>
+</suite>

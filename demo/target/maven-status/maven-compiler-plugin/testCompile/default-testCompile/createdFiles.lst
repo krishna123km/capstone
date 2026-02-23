@@ -1,0 +1,15 @@
+com\example\pages\BasePage.class
+com\example\LoginRegistrationTests.class
+com\example\pages\LoginPage.class
+com\example\pages\CheckoutPage.class
+com\example\base\BaseTest.class
+com\example\OrderPlacementTests.class
+com\example\pages\OrdersPage.class
+com\example\pages\ProductPage.class
+com\example\PaymentProcessingTests.class
+com\example\OrderHistoryTrackingTests.class
+com\example\ProductSearchListingTests.class
+com\example\pages\HomePage.class
+com\example\pages\CartPage.class
+com\example\CartManagementTests.class
+com\example\config\Config.class

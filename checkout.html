@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Paint Store</title>
+  <meta name="description" content="Payment and checkout">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2358a6ff' width='32' height='32' rx='4'/><path fill='%23fff' d='M8 10h16v2H8zm0 5h12v2H8zm0 5h10v2H8z'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav" role="navigation">
+    <a href="home.html" class="nav-brand">Paint Store</a>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="cart.html">Cart <span id="cart-count"></span></a>
+      <a href="orders.html">Orders</a>
+      <a href="index.html" id="nav-logout">Logout</a>
+    </div>
+  </nav>
+  <div class="container checkout-container">
+    <h1>Checkout</h1>
+    <div id="checkout-empty" class="empty-cart" style="display:none;">Your cart is empty. <a href="home.html">Continue shopping</a></div>
+    <div id="checkout-form-wrap">
+      <div id="order-summary" class="order-card mb-0" style="max-width:500px; margin-bottom:1.5rem;"></div>
+      <form id="payment-form" class="checkout-form">
+        <h2>Payment Details</h2>
+        <div class="form-group">
+          <label for="card-name">Name on Card</label>
+          <input type="text" id="card-name" name="cardName" required autocomplete="cc-name" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="card-number">Card Number</label>
+          <input type="text" id="card-number" name="cardNumber" required autocomplete="cc-number" placeholder="4111 1111 1111 1111" maxlength="19">
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+          <div class="form-group">
+            <label for="card-expiry">Expiry (MM/YY)</label>
+            <input type="text" id="card-expiry" name="cardExpiry" required autocomplete="cc-exp" placeholder="12/25" maxlength="5">
+          </div>
+          <div class="form-group">
+            <label for="card-cvv">CVV</label>
+            <input type="text" id="card-cvv" name="cardCvv" required autocomplete="cc-csc" placeholder="123" maxlength="4" inputmode="numeric">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="billing-address">Billing Address</label>
+          <input type="text" id="billing-address" name="billingAddress" required placeholder="Street, City, State, PIN">
+        </div>
+        <button type="submit" class="btn btn-primary">Pay & Place Order</button>
+      </form>
+    </div>
+    <div id="checkout-success" style="display:none;">
+      <p class="success-msg visible">Order placed successfully!</p>
+      <p><strong>Order ID:</strong> <span id="success-order-id"></span></p>
+      <p><strong>Date:</strong> <span id="success-date"></span></p>
+      <p><strong>Total:</strong> <span id="success-total"></span></p>
+      <a href="orders.html" class="btn btn-primary mt-1">View Orders</a>
+      <a href="home.html" class="btn btn-secondary mt-1">Continue Shopping</a>
+    </div>
+  </div>
+  <script src="js/storage.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/checkout.js" defer></script>
+</body>
+</html>

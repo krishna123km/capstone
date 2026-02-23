@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>TestNG:  Module 3 - Cart Management</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Module 3 - Cart Management</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>10/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon Feb 23 12:29:30 IST 2026</td>
+</tr>
+<tr><td>Total time:</td><td>51 seconds (51882 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.example.CartManagementTests.TC_CART_06_removeItem()'><b>TC_CART_06_removeItem</b><br>Test class: com.example.CartManagementTests<br>Test method: TC_CART_06: Remove item - cart updates</td>
+<td></td>
+<td>11</td>
+<td>com.example.CartManagementTests@19e4653c</td></tr>
+<tr>
+<td title='com.example.CartManagementTests.TC_CART_05_decreaseQuantity()'><b>TC_CART_05_decreaseQuantity</b><br>Test class: com.example.CartManagementTests<br>Test method: TC_CART_05: Decrease quantity - total updates</td>
+<td></td>
+<td>1</td>
+<td>com.example.CartManagementTests@19e4653c</td></tr>
+<tr>
+<td title='com.example.CartManagementTests.TC_CART_03_addMultipleItems()'><b>TC_CART_03_addMultipleItems</b><br>Test class: com.example.CartManagementTests<br>Test method: TC_CART_03: Add multiple items - cart shows correct count</td>
+<td></td>
+<td>1</td>
+<td>com.example.CartManagementTests@19e4653c</td></tr>
+<tr>
+<td title='com.example.CartManagementTests.TC_CART_08_proceedToCheckoutVisible()'><b>TC_CART_08_proceedToCheckoutVisible</b><br>Test class: com.example.CartManagementTests<br>Test method: TC_CART_08: Proceed to Checkout button visible when cart has items</td>
+<td></td>
+<td>0</td>
+<td>com.example.CartManagementTests@19e4653c</td></tr>
+<tr>
+<td title='com.example.CartManagementTests.TC_CART_10_emptyCartShowsBrowseLink()'><b>TC_CART_10_emptyCartShowsBrowseLink</b><br>Test class: com.example.CartManagementTests<br>Test method: TC_CART_10: Empty cart shows continue shopping / browse link</td>
+<td></td>
+<td>0</td>
+<td>com.example.CartManagementTests@19e4653c</td></tr>
+<tr>
+<td title='com.example.CartManagementTests.TC_CART_02_addSingleItemFromProductPage()'><b>TC_CART_02_addSingleItemFromProductPage</b><br>Test class: com.example.CartManagementTests<br>Test method: TC_CART_02: Add single item from product page - cart shows item</td>
+<td></td>
+<td>1</td>
+<td>com.example.CartManagementTests@19e4653c</td></tr>
+<tr>
+<td title='com.example.CartManagementTests.TC_CART_07_grandTotalFormat()'><b>TC_CART_07_grandTotalFormat</b><br>Test class: com.example.CartManagementTests<br>Test method: TC_CART_07: Grand total displays correct format (₹)</td>
+<td></td>
+<td>0</td>
+<td>com.example.CartManagementTests@19e4653c</td></tr>
+<tr>
+<td title='com.example.CartManagementTests.TC_CART_01_cartPageLoadsEmpty()'><b>TC_CART_01_cartPageLoadsEmpty</b><br>Test class: com.example.CartManagementTests<br>Test method: TC_CART_01: Cart page loads and shows empty state when no items</td>
+<td></td>
+<td>0</td>
+<td>com.example.CartManagementTests@19e4653c</td></tr>
+<tr>
+<td title='com.example.CartManagementTests.TC_CART_09_cartPersistence()'><b>TC_CART_09_cartPersistence</b><br>Test class: com.example.CartManagementTests<br>Test method: TC_CART_09: Cart persistence - add then navigate away and back</td>
+<td></td>
+<td>0</td>
+<td>com.example.CartManagementTests@19e4653c</td></tr>
+<tr>
+<td title='com.example.CartManagementTests.TC_CART_04_increaseQuantity()'><b>TC_CART_04_increaseQuantity</b><br>Test class: com.example.CartManagementTests<br>Test method: TC_CART_04: Increase quantity - total updates</td>
+<td></td>
+<td>1</td>
+<td>com.example.CartManagementTests@19e4653c</td></tr>
+</table><p>
+</body>
+</html>

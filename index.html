@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Paint Store</title>
+  <meta name="description" content="Paint Store - Login or sign up">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2358a6ff' width='32' height='32' rx='4'/><path fill='%23fff' d='M8 10h16v2H8zm0 5h12v2H8zm0 5h10v2H8z'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+</head>
+<body class="auth-page">
+  <main class="auth-box" role="main">
+    <h1 id="auth-title">Login</h1>
+    <p id="auth-error" class="auth-error" role="alert" aria-live="polite"></p>
+    <form id="auth-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Login</button>
+    </form>
+    <p class="auth-toggle">
+      <span id="auth-toggle-text">Don't have an account?</span>
+      <a href="#" id="auth-toggle-link">Sign up</a>
+    </p>
+  </main>
+  <script src="js/storage.js" defer></script>
+  <script src="js/auth.js" defer></script>
+</body>
+</html>

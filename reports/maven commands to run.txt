@@ -1,0 +1,3 @@
+mvn -Dtest=testname test   or   mvn clean test-Pmodule1(individual)
+mvn clean test
+npx allure serve target/allure-results

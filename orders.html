@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders | Paint Store</title>
+  <meta name="description" content="Order history">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect fill='%2358a6ff' width='32' height='32' rx='4'/><path fill='%23fff' d='M8 10h16v2H8zm0 5h12v2H8zm0 5h10v2H8z'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav" role="navigation">
+    <a href="home.html" class="nav-brand">Paint Store</a>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="cart.html">Cart <span id="cart-count"></span></a>
+      <a href="orders.html" class="active">Orders</a>
+      <a href="index.html" id="nav-logout">Logout</a>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Order History</h1>
+    <div id="orders-list"></div>
+    <p id="orders-empty" class="empty-cart" style="display:none;">You have no orders yet.</p>
+  </div>
+  <script src="js/storage.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/orders.js" defer></script>
+</body>
+</html>
