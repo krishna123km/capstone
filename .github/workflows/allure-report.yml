@@ -29,10 +29,21 @@ jobs:
           distribution: "temurin"
           cache: "maven"
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Install Chrome
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
+
+      - name: Start HTTP Server
+        run: |
+          npx http-server -p 5501 -c-1 &
+          sleep 2
+          echo "HTTP Server started on port 5501"
 
       - name: Run tests with TestNG
         working-directory: demo
