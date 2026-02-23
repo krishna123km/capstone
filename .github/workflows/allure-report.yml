@@ -49,8 +49,7 @@ jobs:
         working-directory: demo
         env:
           CI: true
-          ALLURE_RESULTS_DIRECTORY: target/allure-results
-        run: mvn clean test -DsuiteXmlFile=testng.xml -Dallure.results.directory=allure-results
+        run: mvn clean test -DsuiteXmlFile=testng.xml
 
       - name: Generate Allure report
         working-directory: demo
