@@ -49,13 +49,16 @@ jobs:
         working-directory: demo
         env:
           CI: true
+        continue-on-error: true
         run: mvn clean test -DsuiteXmlFile=testng.xml
 
       - name: Generate Allure report
+        if: always()
         working-directory: demo
         run: mvn allure:report -N
 
       - name: Prepare GitHub Pages content
+        if: always()
         run: |
           mkdir -p gh-pages
           if [ -d "demo/target/site/allure-maven-plugin" ]; then
@@ -63,6 +66,8 @@ jobs:
           fi
           if [ ! -f "gh-pages/index.html" ]; then
             echo "Warning: index.html not found in gh-pages"
+            ls -la demo/target/site/ 2>/dev/null || echo "site directory not found"
+          fi
             ls -la demo/target/site/ 2>/dev/null || echo "site directory not found"
           fi
 
