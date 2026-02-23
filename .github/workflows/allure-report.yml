@@ -29,8 +29,15 @@ jobs:
           distribution: "temurin"
           cache: "maven"
 
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
       - name: Run tests with TestNG
         working-directory: demo
+        env:
+          CI: true
         run: mvn clean test -DsuiteXmlFile=testng.xml -Dallure.results.directory=target/allure-results
 
       - name: Generate Allure report
