@@ -68,8 +68,6 @@ jobs:
             echo "Warning: index.html not found in gh-pages"
             ls -la demo/target/site/ 2>/dev/null || echo "site directory not found"
           fi
-            ls -la demo/target/site/ 2>/dev/null || echo "site directory not found"
-          fi
 
       - name: Upload Allure report as artifact
         if: always()
