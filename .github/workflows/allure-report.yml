@@ -55,10 +55,37 @@ jobs:
         working-directory: demo
         run: mvn allure:report -N
 
+      - name: Upload Allure report as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: demo/target/site/allure-maven-plugin/
+          retention-days: 30
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: demo/target/allure-results/
+          retention-days: 30
+
       - name: Upload Allure report for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: demo/target/site/allure-maven-plugin
+
+      - name: Publish test results summary
+        if: always()
+        run: |
+          echo "## Allure Test Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Test results generated and available:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Allure Report** available as [artifact download](../../actions/runs/${{ github.run_id }}) (allure-report)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Test Results** available as [artifact download](../../actions/runs/${{ github.run_id }}) (test-results)" >> $GITHUB_STEP_SUMMARY
+          echo "- **GitHub Pages** deployment: Will be available at GitHub Pages URL once workflow completes" >> $GITHUB_STEP_SUMMARY
 
   deploy:
     environment:
